@@ -7,6 +7,8 @@ interface Feature {
 	description: string;
 	details: string;
 	type: "internal" | "external";
+	technology?: string[];
+	considerations?: string[];
 	recommendedTool?: string;
 	integrationPossibilities?: string[];
 }
@@ -19,6 +21,17 @@ const features: Feature[] = [
 		details:
 			"Provides an overview of the hub and quick access to all main features.",
 		type: "internal",
+		technology: [
+			"Frontend: React with Next.js",
+			"Backend: Node.js with Express.js",
+			"Database: PostgreSQL",
+		],
+		considerations: [
+			"Responsive design",
+			"Fast loading times",
+			"Clear navigation",
+			"SEO optimization",
+		],
 	},
 	{
 		id: "profiles",
@@ -27,6 +40,13 @@ const features: Feature[] = [
 		details:
 			"Essential for creating a sense of community and facilitating connections. Allows users to showcase their expertise and interests. Serves as a foundation for future features like collaboration matching.",
 		type: "internal",
+		technology: [
+			"Frontend: React",
+			"Backend: Node.js with Express.js",
+			"Database: PostgreSQL",
+			"Authentication: Auth0",
+		],
+		considerations: ["Profile customization options", "Privacy settings"],
 	},
 	{
 		id: "resources",
@@ -35,6 +55,18 @@ const features: Feature[] = [
 		details:
 			"Provides immediate value to visitors and encourages return visits. Can be easily expanded over time with user contributions.",
 		type: "internal",
+		technology: [
+			"Frontend: React",
+			"Backend: Node.js with Express.js",
+			"Database: PostgreSQL",
+			"File Storage: Amazon S3",
+			"Search: Elasticsearch",
+		],
+		considerations: [
+			"Efficient search and filtering",
+			"Version control for documents",
+			"Access control",
+		],
 	},
 	{
 		id: "events",
@@ -43,6 +75,15 @@ const features: Feature[] = [
 		details:
 			"Keeps the community informed about relevant workshops, conferences, and meetups. Encourages engagement and networking. Can include both hub-hosted events and external events.",
 		type: "internal",
+		technology: [
+			"Frontend: React with react-big-calendar",
+			"Backend: Node.js with Express.js",
+			"Database: PostgreSQL",
+		],
+		considerations: [
+			"Integration with popular calendar services (Google Calendar, iCal)",
+			"Time zone handling",
+		],
 	},
 	{
 		id: "news",
@@ -51,6 +92,17 @@ const features: Feature[] = [
 		details:
 			"Keeps the site dynamic with fresh content. Provides a platform for sharing important developments in decentralized AI. Can start as a simple blog and evolve into a more comprehensive news section.",
 		type: "internal",
+		technology: [
+			"Frontend: React",
+			"Backend: Node.js with Express.js",
+			"Database: PostgreSQL",
+			"CMS: Strapi",
+		],
+		considerations: [
+			"Content categorization",
+			"RSS feed generation",
+			"Social media sharing",
+		],
 	},
 	{
 		id: "external",
@@ -59,6 +111,16 @@ const features: Feature[] = [
 		details:
 			"Curated list of links to external platforms and tools (e.g., Discord for discussions, GitHub for projects). Serves as a navigation hub for the decentralized ecosystem. Easy to update and expand as you add more external integrations.",
 		type: "internal",
+		technology: [
+			"Frontend: React",
+			"Backend: Node.js with Express.js",
+			"Database: PostgreSQL",
+		],
+		considerations: [
+			"Regular updates",
+			"Link validation",
+			"Categorization of resources",
+		],
 	},
 	{
 		id: "search",
@@ -67,6 +129,12 @@ const features: Feature[] = [
 		details:
 			"Allows users to quickly find relevant resources, events, and profiles. Enhances user experience and the overall usefulness of the site. Can be expanded later to include more advanced filtering and sorting options.",
 		type: "internal",
+		technology: [
+			"Frontend: React",
+			"Backend: Node.js with Express.js",
+			"Search Engine: Elasticsearch",
+		],
+		considerations: ["Relevance ranking", "Faceted search", "Search analytics"],
 	},
 	{
 		id: "contact",
@@ -75,6 +143,16 @@ const features: Feature[] = [
 		details:
 			"Provides a direct line of communication between users and hub administrators. Essential for gathering user feedback and continuously improving the platform. Can also serve as a starting point for those interested in partnerships or collaborations.",
 		type: "internal",
+		technology: [
+			"Frontend: React with Formik for form management",
+			"Backend: Node.js with Express.js",
+			"Database: PostgreSQL",
+		],
+		considerations: [
+			"Spam protection",
+			"Email notifications",
+			"Ticket system for tracking inquiries",
+		],
 	},
 	{
 		id: "forum",
@@ -182,6 +260,26 @@ const DetailPanel: React.FC<DetailPanelProps> = ({ feature, onClose }) => (
 		</p>
 		<h3 className="text-xl font-semibold mb-2">Details:</h3>
 		<p className="mb-4">{feature.details}</p>
+		{feature.technology && (
+			<>
+				<h3 className="text-xl font-semibold mb-2">Technology:</h3>
+				<ul className="list-disc list-inside mb-4">
+					{feature.technology.map((tech, index) => (
+						<li key={index}>{tech}</li>
+					))}
+				</ul>
+			</>
+		)}
+		{feature.considerations && (
+			<>
+				<h3 className="text-xl font-semibold mb-2">Considerations:</h3>
+				<ul className="list-disc list-inside mb-4">
+					{feature.considerations.map((consideration, index) => (
+						<li key={index}>{consideration}</li>
+					))}
+				</ul>
+			</>
+		)}
 		{feature.type === "external" && (
 			<>
 				<h3 className="text-xl font-semibold mb-2">Recommended Tool:</h3>
@@ -395,15 +493,14 @@ export const HybridSitemap: React.FC = () => {
 						<ul className="list-disc list-inside mb-4">
 							<li>
 								Blue nodes represent internal features hosted directly on the
-								hub.
+								hub. Click to see technology stack and considerations.
 							</li>
 							<li>
 								Red nodes represent external features or integrations, with
-								their recommended tools displayed.
+								their recommended tools and integration possibilities.
 							</li>
 							<li>
-								Click on any node to view more details about that feature,
-								including integration possibilities for external features.
+								Click on any node to view more details about that feature.
 							</li>
 						</ul>
 					</div>
