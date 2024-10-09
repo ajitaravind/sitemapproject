@@ -144,20 +144,6 @@ const DetailPanel: React.FC<DetailPanelProps> = ({ feature, onClose }) => (
 	</div>
 );
 
-const Legend: React.FC = () => (
-	<div className="fixed top-4 right-4 bg-white p-4 rounded shadow-md z-10">
-		<h3 className="font-bold mb-2 text-lg">Legend</h3>
-		<div className="flex items-center mb-2">
-			<div className="w-4 h-4 rounded-full mr-2 bg-[#3498db]"></div>
-			<span>Internal Feature</span>
-		</div>
-		<div className="flex items-center">
-			<div className="w-4 h-4 rounded-full mr-2 bg-[#e74c3c]"></div>
-			<span>External Feature</span>
-		</div>
-	</div>
-);
-
 export const HybridSitemap: React.FC = () => {
 	const [selectedFeature, setSelectedFeature] = useState<Feature | null>(null);
 	const [showInfo, setShowInfo] = useState<boolean>(false);
