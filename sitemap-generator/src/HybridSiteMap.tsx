@@ -330,6 +330,22 @@ export const HybridSitemap: React.FC = () => {
 				<Info size={24} />
 			</button>
 
+			<Legend />
+
+			{selectedFeature && (
+				<DetailPanel
+					feature={selectedFeature}
+					onClose={() => setSelectedFeature(null)}
+				/>
+			)}
+
+			<button
+				className="fixed top-4 left-4 bg-gray-200 p-2 rounded-full"
+				onClick={() => setShowInfo(!showInfo)}
+			>
+				<Info size={24} />
+			</button>
+
 			{showInfo && (
 				<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center overflow-auto">
 					<div className="bg-white p-6 rounded-lg max-w-2xl m-4">
@@ -367,3 +383,17 @@ export const HybridSitemap: React.FC = () => {
 		</div>
 	);
 };
+
+const Legend: React.FC = () => (
+	<div className="fixed top-4 right-4 bg-white p-4 rounded shadow-md z-10">
+		<h3 className="font-bold mb-2 text-lg">Legend</h3>
+		<div className="flex items-center mb-2">
+			<div className="w-4 h-4 rounded-full mr-2 bg-[#3498db]"></div>
+			<span>Internal Feature</span>
+		</div>
+		<div className="flex items-center">
+			<div className="w-4 h-4 rounded-full mr-2 bg-[#e74c3c]"></div>
+			<span>External Feature</span>
+		</div>
+	</div>
+);
