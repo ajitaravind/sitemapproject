@@ -315,157 +315,174 @@ export const HybridSitemap: React.FC = () => {
 	const [showInfo, setShowInfo] = useState<boolean>(false);
 
 	return (
-		<div className="relative w-full min-h-screen bg-gray-100 overflow-auto p-4 flex justify-center items-center">
-			<svg width="800" height="600" viewBox="0 0 800 600">
-				<Legend />
-				<Feature
-					feature={features[0]}
-					x={400}
-					y={100}
-					onClick={setSelectedFeature}
-				/>
-				<Feature
-					feature={features[1]}
-					x={200}
-					y={250}
-					onClick={setSelectedFeature}
-				/>
-				<Feature
-					feature={features[2]}
-					x={400}
-					y={250}
-					onClick={setSelectedFeature}
-				/>
-				<Feature
-					feature={features[3]}
-					x={600}
-					y={250}
-					onClick={setSelectedFeature}
-				/>
-				<Feature
-					feature={features[4]}
-					x={100}
-					y={400}
-					onClick={setSelectedFeature}
-				/>
-				<Feature
-					feature={features[5]}
-					x={300}
-					y={400}
-					onClick={setSelectedFeature}
-				/>
-				<Feature
-					feature={features[6]}
-					x={500}
-					y={400}
-					onClick={setSelectedFeature}
-				/>
-				<Feature
-					feature={features[7]}
-					x={700}
-					y={400}
-					onClick={setSelectedFeature}
-				/>
-				<Feature
-					feature={features[8]}
-					x={200}
-					y={550}
-					onClick={setSelectedFeature}
-				/>
-				<Feature
-					feature={features[9]}
-					x={400}
-					y={550}
-					onClick={setSelectedFeature}
-				/>
-				<Feature
-					feature={features[10]}
-					x={600}
-					y={550}
-					onClick={setSelectedFeature}
-				/>
+		<div className="relative w-full h-full bg-gray-100 overflow-auto p-4 flex flex-col">
+			<div className="flex justify-between items-center mb-4">
+				<button
+					className="bg-gray-200 p-2 rounded-full"
+					onClick={() => setShowInfo(!showInfo)}
+				>
+					<Info size={24} />
+				</button>
+				<h1 className="text-2xl font-bold">Decentralized AI Hub Sitemap</h1>
+				<div className="w-8"></div> {/* Spacer for alignment */}
+			</div>
+			<div className="flex-grow flex justify-center items-center">
+				<svg
+					width="100%"
+					height="100%"
+					viewBox="0 0 800 600"
+					preserveAspectRatio="xMidYMid meet"
+				>
+					<Legend />
+					<Feature
+						feature={features[0]}
+						x={400}
+						y={100}
+						onClick={setSelectedFeature}
+					/>
+					<Feature
+						feature={features[1]}
+						x={200}
+						y={250}
+						onClick={setSelectedFeature}
+					/>
+					<Feature
+						feature={features[2]}
+						x={400}
+						y={250}
+						onClick={setSelectedFeature}
+					/>
+					<Feature
+						feature={features[3]}
+						x={600}
+						y={250}
+						onClick={setSelectedFeature}
+					/>
+					<Feature
+						feature={features[4]}
+						x={100}
+						y={400}
+						onClick={setSelectedFeature}
+					/>
+					<Feature
+						feature={features[5]}
+						x={300}
+						y={400}
+						onClick={setSelectedFeature}
+					/>
+					<Feature
+						feature={features[6]}
+						x={500}
+						y={400}
+						onClick={setSelectedFeature}
+					/>
+					<Feature
+						feature={features[7]}
+						x={700}
+						y={400}
+						onClick={setSelectedFeature}
+					/>
+					<Feature
+						feature={features[8]}
+						x={200}
+						y={550}
+						onClick={setSelectedFeature}
+					/>
+					<Feature
+						feature={features[9]}
+						x={400}
+						y={550}
+						onClick={setSelectedFeature}
+					/>
+					<Feature
+						feature={features[10]}
+						x={600}
+						y={550}
+						onClick={setSelectedFeature}
+					/>
 
-				<line
-					x1={400}
-					y1={140}
-					x2={200}
-					y2={210}
-					stroke="#3498db"
-					strokeWidth={2}
-				/>
-				<line
-					x1={400}
-					y1={140}
-					x2={400}
-					y2={210}
-					stroke="#3498db"
-					strokeWidth={2}
-				/>
-				<line
-					x1={400}
-					y1={140}
-					x2={600}
-					y2={210}
-					stroke="#3498db"
-					strokeWidth={2}
-				/>
-				<line
-					x1={200}
-					y1={290}
-					x2={100}
-					y2={360}
-					stroke="#3498db"
-					strokeWidth={2}
-				/>
-				<line
-					x1={400}
-					y1={290}
-					x2={300}
-					y2={360}
-					stroke="#3498db"
-					strokeWidth={2}
-				/>
-				<line
-					x1={400}
-					y1={290}
-					x2={500}
-					y2={360}
-					stroke="#3498db"
-					strokeWidth={2}
-				/>
-				<line
-					x1={600}
-					y1={290}
-					x2={700}
-					y2={360}
-					stroke="#3498db"
-					strokeWidth={2}
-				/>
-				<line
-					x1={400}
-					y1={290}
-					x2={200}
-					y2={510}
-					stroke="#3498db"
-					strokeWidth={2}
-				/>
-				<line
-					x1={400}
-					y1={290}
-					x2={400}
-					y2={510}
-					stroke="#3498db"
-					strokeWidth={2}
-				/>
-				<line
-					x1={400}
-					y1={290}
-					x2={600}
-					y2={510}
-					stroke="#3498db"
-					strokeWidth={2}
-				/>
-			</svg>
+					<line
+						x1={400}
+						y1={140}
+						x2={200}
+						y2={210}
+						stroke="#3498db"
+						strokeWidth={2}
+					/>
+					<line
+						x1={400}
+						y1={140}
+						x2={400}
+						y2={210}
+						stroke="#3498db"
+						strokeWidth={2}
+					/>
+					<line
+						x1={400}
+						y1={140}
+						x2={600}
+						y2={210}
+						stroke="#3498db"
+						strokeWidth={2}
+					/>
+					<line
+						x1={200}
+						y1={290}
+						x2={100}
+						y2={360}
+						stroke="#3498db"
+						strokeWidth={2}
+					/>
+					<line
+						x1={400}
+						y1={290}
+						x2={300}
+						y2={360}
+						stroke="#3498db"
+						strokeWidth={2}
+					/>
+					<line
+						x1={400}
+						y1={290}
+						x2={500}
+						y2={360}
+						stroke="#3498db"
+						strokeWidth={2}
+					/>
+					<line
+						x1={600}
+						y1={290}
+						x2={700}
+						y2={360}
+						stroke="#3498db"
+						strokeWidth={2}
+					/>
+					<line
+						x1={400}
+						y1={290}
+						x2={200}
+						y2={510}
+						stroke="#3498db"
+						strokeWidth={2}
+					/>
+					<line
+						x1={400}
+						y1={290}
+						x2={400}
+						y2={510}
+						stroke="#3498db"
+						strokeWidth={2}
+					/>
+					<line
+						x1={400}
+						y1={290}
+						x2={600}
+						y2={510}
+						stroke="#3498db"
+						strokeWidth={2}
+					/>
+				</svg>
+			</div>
 
 			{selectedFeature && (
 				<DetailPanel
@@ -474,17 +491,21 @@ export const HybridSitemap: React.FC = () => {
 				/>
 			)}
 
-			<button
-				className="fixed top-4 left-4 bg-gray-200 p-2 rounded-full"
-				onClick={() => setShowInfo(!showInfo)}
-				disabled={selectedFeature !== null}
-			>
-				<Info size={24} />
-			</button>
-
-			{showInfo && selectedFeature === null && (
-				<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center overflow-auto">
-					<div className="bg-white p-6 rounded-lg max-w-2xl m-4">
+			{showInfo && (
+				<div
+					className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+					onClick={() => setShowInfo(false)}
+				>
+					<div
+						className="bg-white p-6 rounded-lg max-w-2xl m-4"
+						onClick={(e) => e.stopPropagation()}
+					>
+						<button
+							className="absolute top-2 right-2"
+							onClick={() => setShowInfo(false)}
+						>
+							<X size={24} />
+						</button>
 						<h2 className="text-2xl font-bold mb-4">How to Use This Sitemap</h2>
 						<p className="mb-4">
 							This interactive sitemap provides an overview of the Decentralized
