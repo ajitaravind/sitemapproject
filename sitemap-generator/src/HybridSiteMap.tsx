@@ -300,8 +300,6 @@ export const HybridSitemap: React.FC = () => {
 				/>
 			</svg>
 
-			<Legend />
-
 			{selectedFeature && (
 				<DetailPanel
 					feature={selectedFeature}
@@ -333,72 +331,10 @@ export const HybridSitemap: React.FC = () => {
 							<li>
 								Click on any node to view more details about that feature.
 							</li>
-							<li>
-								Use the legend in the top-right corner for quick reference.
-							</li>
 						</ul>
-						<p>
-							Explore the connections between different features to understand
-							the structure of the hub.
-						</p>
-						<button
-							className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
-							onClick={() => setShowInfo(false)}
-						>
-							Close
-						</button>
-					</div>
-				</div>
-			)}
-
-			{showInfo && (
-				<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center overflow-auto">
-					<div className="bg-white p-6 rounded-lg max-w-2xl m-4">
-						<h2 className="text-2xl font-bold mb-4">How to Use This Sitemap</h2>
-						<p className="mb-4">
-							This interactive sitemap provides an overview of the Decentralized
-							AI Hub's features:
-						</p>
-						<ul className="list-disc list-inside mb-4">
-							<li>
-								Blue nodes represent internal features hosted directly on the
-								hub.
-							</li>
-							<li>Red nodes represent external features or integrations.</li>
-							<li>
-								Click on any node to view more details about that feature.
-							</li>
-							<li>
-								Use the legend in the top-right corner for quick reference.
-							</li>
-						</ul>
-						<p>
-							Explore the connections between different features to understand
-							the structure of the hub.
-						</p>
-						<button
-							className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
-							onClick={() => setShowInfo(false)}
-						>
-							Close
-						</button>
 					</div>
 				</div>
 			)}
 		</div>
 	);
 };
-
-const Legend: React.FC = () => (
-	<div className="fixed top-4 right-4 bg-white p-4 rounded shadow-md z-10">
-		<h3 className="font-bold mb-2 text-lg">Legend</h3>
-		<div className="flex items-center mb-2">
-			<div className="w-4 h-4 rounded-full mr-2 bg-[#3498db]"></div>
-			<span>Internal Feature</span>
-		</div>
-		<div className="flex items-center">
-			<div className="w-4 h-4 rounded-full mr-2 bg-[#e74c3c]"></div>
-			<span>External Feature</span>
-		</div>
-	</div>
-);
