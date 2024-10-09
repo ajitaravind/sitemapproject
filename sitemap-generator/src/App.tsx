@@ -1,6 +1,5 @@
 import React from "react";
-import HybridSitemap from "./HybridSitemap";
-
+import { HybridSitemap } from "./HybridSiteMap";
 const App: React.FC = () => {
 	return (
 		<div className="App">

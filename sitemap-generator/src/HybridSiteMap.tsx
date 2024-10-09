@@ -60,7 +60,7 @@ const features: Feature[] = [
 	},
 	{
 		id: "search",
-		name: "Search",
+		name: "Search Features",
 		description: "Find relevant information across the hub.",
 		details:
 			"Allows users to quickly find relevant resources, events, and profiles. Enhances user experience and the overall usefulness of the site. Can be expanded later to include more advanced filtering and sorting options.",
