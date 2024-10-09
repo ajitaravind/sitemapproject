@@ -333,11 +333,12 @@ export const HybridSitemap: React.FC = () => {
 			<button
 				className="fixed top-4 left-4 bg-gray-200 p-2 rounded-full"
 				onClick={() => setShowInfo(!showInfo)}
+				disabled={selectedFeature !== null}
 			>
 				<Info size={24} />
 			</button>
 
-			{showInfo && (
+			{showInfo && selectedFeature === null && (
 				<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center overflow-auto">
 					<div className="bg-white p-6 rounded-lg max-w-2xl m-4">
 						<h2 className="text-2xl font-bold mb-4">How to Use This Sitemap</h2>
