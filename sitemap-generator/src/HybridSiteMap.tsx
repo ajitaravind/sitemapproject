@@ -7,6 +7,8 @@ interface Feature {
 	description: string;
 	details: string;
 	type: "internal" | "external";
+	recommendedTool?: string;
+	integrationPossibilities?: string[];
 }
 
 const features: Feature[] = [
@@ -81,6 +83,12 @@ const features: Feature[] = [
 		details:
 			"Hosted on an external platform like Discord or Discourse. Enables in-depth discussions and community engagement.",
 		type: "external",
+		recommendedTool: "Discord",
+		integrationPossibilities: [
+			"Use Discord's API to display recent discussions on the main site",
+			"Create a bot for cross-posting updates between the main site and Discord",
+			"Implement a Discord widget on the main site showing active users or recent messages",
+		],
 	},
 	{
 		id: "projects",
@@ -89,6 +97,12 @@ const features: Feature[] = [
 		details:
 			"Links to external platforms like GitHub for actual project collaboration. May include an internal project showcase or directory.",
 		type: "external",
+		recommendedTool: "GitHub",
+		integrationPossibilities: [
+			"Use GitHub's API to display recent project activities on the main site",
+			"Implement a project showcase on the main site, pulling data from GitHub repositories",
+			"Create a bot for cross-posting updates between GitHub and the main site",
+		],
 	},
 	{
 		id: "funding",
@@ -97,6 +111,12 @@ const features: Feature[] = [
 		details:
 			"Curated list of funding opportunities for decentralized AI projects. May start as an internal list and potentially move to a more robust external platform as the community grows.",
 		type: "external",
+		recommendedTool: "Airtable",
+		integrationPossibilities: [
+			"Use Airtable's API to display current funding opportunities on the main site",
+			"Create a submission form on the main site that pushes data to Airtable",
+			"Set up automations to post new opportunities to Discord or the main site's news section",
+		],
 	},
 ];
 
@@ -129,6 +149,18 @@ const Feature: React.FC<FeatureProps> = ({ feature, x, y, onClick }) => (
 		>
 			{feature.name}
 		</text>
+		{feature.type === "external" && (
+			<text
+				x={x}
+				y={y + 15}
+				textAnchor="middle"
+				fill="white"
+				fontSize={10}
+				dy=".3em"
+			>
+				({feature.recommendedTool})
+			</text>
+		)}
 	</g>
 );
 
@@ -149,7 +181,21 @@ const DetailPanel: React.FC<DetailPanelProps> = ({ feature, onClose }) => (
 			{feature.type.charAt(0).toUpperCase() + feature.type.slice(1)}
 		</p>
 		<h3 className="text-xl font-semibold mb-2">Details:</h3>
-		<p>{feature.details}</p>
+		<p className="mb-4">{feature.details}</p>
+		{feature.type === "external" && (
+			<>
+				<h3 className="text-xl font-semibold mb-2">Recommended Tool:</h3>
+				<p className="mb-4">{feature.recommendedTool}</p>
+				<h3 className="text-xl font-semibold mb-2">
+					Integration Possibilities:
+				</h3>
+				<ul className="list-disc list-inside mb-4">
+					{feature.integrationPossibilities?.map((possibility, index) => (
+						<li key={index}>{possibility}</li>
+					))}
+				</ul>
+			</>
+		)}
 	</div>
 );
 
@@ -161,7 +207,7 @@ const Legend: React.FC = () => (
 		</text>
 		<circle cx={10} cy={40} r={10} fill="#e74c3c" />
 		<text x={25} y={45} fontSize={12}>
-			External Feature
+			External Feature (with recommended tool)
 		</text>
 	</g>
 );
@@ -351,9 +397,13 @@ export const HybridSitemap: React.FC = () => {
 								Blue nodes represent internal features hosted directly on the
 								hub.
 							</li>
-							<li>Red nodes represent external features or integrations.</li>
 							<li>
-								Click on any node to view more details about that feature.
+								Red nodes represent external features or integrations, with
+								their recommended tools displayed.
+							</li>
+							<li>
+								Click on any node to view more details about that feature,
+								including integration possibilities for external features.
 							</li>
 						</ul>
 					</div>
