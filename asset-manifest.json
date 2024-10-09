@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sitemapproject/static/css/main.71af3d2b.css",
+    "main.js": "/sitemapproject/static/js/main.d49b8e57.js",
+    "index.html": "/sitemapproject/index.html",
+    "main.71af3d2b.css.map": "/sitemapproject/static/css/main.71af3d2b.css.map",
+    "main.d49b8e57.js.map": "/sitemapproject/static/js/main.d49b8e57.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.71af3d2b.css",
+    "static/js/main.d49b8e57.js"
+  ]
+}
