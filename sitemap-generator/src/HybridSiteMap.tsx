@@ -117,7 +117,16 @@ const Feature: React.FC<FeatureProps> = ({ feature, x, y, onClick }) => (
 			stroke={feature.id === "home" ? "#2c3e50" : "none"}
 			strokeWidth={3}
 		/>
-		<text x={x} y={y} textAnchor="middle" fill="white" fontSize={12} dy=".3em">
+		<text
+			x={x}
+			y={y}
+			textAnchor="middle"
+			fill="white"
+			fontSize={12}
+			dy=".3em"
+			textLength={80}
+			lengthAdjust="spacingAndGlyphs"
+		>
 			{feature.name}
 		</text>
 	</g>
