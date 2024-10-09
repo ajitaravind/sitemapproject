@@ -144,6 +144,19 @@ const DetailPanel: React.FC<DetailPanelProps> = ({ feature, onClose }) => (
 	</div>
 );
 
+const Legend: React.FC = () => (
+	<g transform="translate(20, 20)">
+		<circle cx={10} cy={10} r={10} fill="#3498db" />
+		<text x={25} y={15} fontSize={12}>
+			Internal Feature
+		</text>
+		<circle cx={10} cy={40} r={10} fill="#e74c3c" />
+		<text x={25} y={45} fontSize={12}>
+			External Feature
+		</text>
+	</g>
+);
+
 export const HybridSitemap: React.FC = () => {
 	const [selectedFeature, setSelectedFeature] = useState<Feature | null>(null);
 	const [showInfo, setShowInfo] = useState<boolean>(false);
@@ -151,6 +164,7 @@ export const HybridSitemap: React.FC = () => {
 	return (
 		<div className="relative w-full min-h-screen bg-gray-100 overflow-auto p-4 flex justify-center items-center">
 			<svg width="800" height="600" viewBox="0 0 800 600">
+				<Legend />
 				<Feature
 					feature={features[0]}
 					x={400}
